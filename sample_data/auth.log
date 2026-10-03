@@ -1,0 +1,16 @@
+Oct  3 14:22:10 myserver sshd[12345]: Failed password for john from 203.0.113.5 port 54321 ssh2
+Oct  3 14:22:14 myserver sshd[12346]: Failed password for invalid user admin from 203.0.113.5 port 54325 ssh2
+Oct  3 14:22:18 myserver sshd[12347]: Failed password for root from 203.0.113.5 port 54330 ssh2
+Oct  3 14:22:22 myserver sshd[12348]: Failed password for invalid user test from 203.0.113.5 port 54334 ssh2
+Oct  3 14:22:27 myserver sshd[12349]: Failed password for root from 203.0.113.5 port 54339 ssh2
+Oct  3 14:22:31 myserver sshd[12350]: Failed password for root from 203.0.113.5 port 54344 ssh2
+Oct  3 14:25:02 myserver sshd[12360]: Failed password for alice from 198.51.100.23 port 40120 ssh2
+Oct  3 14:25:09 myserver sshd[12361]: Accepted password for alice from 198.51.100.23 port 40122 ssh2
+Oct  3 14:26:00 myserver CRON[12370]: pam_unix(cron:session): session opened for user root
+Oct  3 14:30:15 myserver sshd[12380]: Failed password for invalid user oracle from 192.0.2.77 port 61000 ssh2
+Oct  3 14:30:19 myserver sshd[12381]: Failed password for invalid user oracle from 192.0.2.77 port 61004 ssh2
+Oct  3 14:31:45 myserver sshd[12390]: Accepted password for bob from 198.51.100.40 port 33210 ssh2
+Oct  3 14:32:00 myserver sshd[12395]: Failed password for bob from 198.51.100.40 port 33220 ssh2
+Oct  3 14:33:10 myserver CRON[12400]: pam_unix(cron:session): session closed for user root
+Oct  3 14:35:02 myserver sshd[12410]: Failed password for invalid user guest from 192.0.2.77 port 61010 ssh2
+Oct  3 14:36:20 myserver sshd[12415]: Accepted password for john from 198.51.100.23 port 40200 ssh2
