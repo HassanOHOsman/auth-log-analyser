@@ -8,7 +8,7 @@ const THRESHOLD = 3;
 function parseLine(line) {
     const match = line.match(FAILED_LOGIN);
     if (!match) return null;
-    return { user: match[1], ip: match[2] };
+    return {ip: match[2] };
 }
 
 async function main() {
