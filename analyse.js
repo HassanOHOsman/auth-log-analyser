@@ -42,6 +42,10 @@ async function main() {
     const count = entry[1];
     console.log(ip + ": " + count + " failed logins");
 
+    if (count >= THRESHOLD) {
+        console.log("WARNING: IP address " + ip + " has " + count + " failed logins");
+    }
+
    }
 
 }
