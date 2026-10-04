@@ -26,6 +26,8 @@ async function main() {
         const ip = result.ip;
         if (!failuresByIp.has(ip)) {
             failuresByIp.set(ip, 1);
+        } else {
+            const currentCount = failuresByIp.get(ip);
         }
     }
    }
