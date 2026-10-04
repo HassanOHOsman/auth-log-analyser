@@ -32,6 +32,7 @@ async function main() {
         }
     }
    }
+   console.log(failuresByIp);
 
 }
 
