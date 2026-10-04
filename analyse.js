@@ -9,6 +9,9 @@ async function main() {
    });
 
    for await (const line of rl) {
+    if (line.includes("Failed password")) {
+       console.log(line); 
+    }
    
 
    }
