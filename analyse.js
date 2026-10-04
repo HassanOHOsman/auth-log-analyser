@@ -28,6 +28,7 @@ async function main() {
             failuresByIp.set(ip, 1);
         } else {
             const currentCount = failuresByIp.get(ip);
+            failuresByIp.set(ip, currentCount + 1);
         }
     }
    }
