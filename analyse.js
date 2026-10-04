@@ -7,4 +7,11 @@ async function main() {
    const rl = readline.createInterface({
      input: fs.createReadStream(filePath),
    });
+
+   for await (const line of rl) {
+    console.log(line);
+
+   }
+
+
 }
