@@ -9,7 +9,7 @@ async function main() {
    });
 
    for await (const line of rl) {
-    console.log(line);
+   
 
    }
 
