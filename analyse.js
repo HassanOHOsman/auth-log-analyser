@@ -34,7 +34,7 @@ async function main() {
         }
     }
    }
-   console.log(failuresByIp);
+  
 
    for (const entry of failuresByIp) {
     const ip = entry[0];
