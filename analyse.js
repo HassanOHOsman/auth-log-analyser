@@ -14,6 +14,11 @@ function parseLine(line) {
 async function main() {
    const filePath = process.argv[2];
 
+   if (!filePath) {
+    console.error("Usage: node analyse.js <path-to-log-file>");
+    process.exit(1);
+   }
+
    const rl = readline.createInterface({
      input: fs.createReadStream(filePath),
    });
