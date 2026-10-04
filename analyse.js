@@ -5,6 +5,8 @@ const FAILED_LOGIN = /Failed password for (\S+) from (\d{1,3}(?:\.\d{1,3}){3}) p
 
 function parseLine(line) {
     const match = line.match(FAILED_LOGIN);
+    if (!match) return null;
+    return { user: match[1], ip: match[2] };
 }
 
 async function main() {
