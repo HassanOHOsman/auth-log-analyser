@@ -24,7 +24,6 @@ async function main() {
     const result = parseLine(line);
 
     if(result) {
-        console.log(result);
 
         const ip = result.ip;
         if (!failuresByIp.has(ip)) {
