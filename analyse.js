@@ -22,6 +22,8 @@ async function main() {
 
     if(result) {
         console.log(result);
+
+        const ip = result.ip;
     }
    }
 
