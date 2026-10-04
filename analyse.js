@@ -17,6 +17,7 @@ async function main() {
    });
 
    for await (const line of rl) {
+    const failuresByIp = new Map();
     const result = parseLine(line);
 
     if(result) {
