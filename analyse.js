@@ -3,6 +3,8 @@ const readline = require("readline");
 
 const FAILED_LOGIN = /Failed password for (?:invalid user )?(\S+) from (\d{1,3}(?:\.\d{1,3}){3}) port/;
 
+const THRESHOLD = 5;
+
 function parseLine(line) {
     const match = line.match(FAILED_LOGIN);
     if (!match) return null;
@@ -17,7 +19,7 @@ async function main() {
    });
 
    const failuresByIp = new Map();
-   
+
    for await (const line of rl) {
     const result = parseLine(line);
 
