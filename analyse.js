@@ -24,6 +24,9 @@ async function main() {
         console.log(result);
 
         const ip = result.ip;
+        if (!failuresByIp.has(ip)) {
+            failuresByIp.set(ip, 1);
+        }
     }
    }
 
