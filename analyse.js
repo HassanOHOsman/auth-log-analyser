@@ -3,7 +3,7 @@ const readline = require("readline");
 
 const FAILED_LOGIN = /Failed password for (?:invalid user )?(\S+) from (\d{1,3}(?:\.\d{1,3}){3}) port/;
 
-const THRESHOLD = 5;
+const THRESHOLD = 3;
 
 function parseLine(line) {
     const match = line.match(FAILED_LOGIN);
