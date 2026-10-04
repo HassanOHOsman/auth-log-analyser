@@ -37,6 +37,13 @@ async function main() {
    }
    console.log(failuresByIp);
 
+   for (const entry of failuresByIp) {
+    const ip = entry[0];
+    const count = entry[1];
+    console.log(ip + ": " + count + " failed logins");
+
+   }
+
 }
 
 main();
