@@ -19,8 +19,8 @@ async function main() {
     process.exit(1);
    }
 
-   if(fs.existsSync(filePath)) {
-    console.error("Usage: node analyse.js <path-to-log-file>");
+   if(!fs.existsSync(filePath)) {
+    console.error("Error: file not found: " + filePath);
     process.exit(1);
    }
 
