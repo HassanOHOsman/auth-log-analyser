@@ -40,7 +40,7 @@ async function main() {
    for (const entry of failuresByIp) {
     const ip = entry[0];
     const count = entry[1];
-    console.log(ip + ": " + count + " failed logins");
+    console.log("IP address: " + ip + " is associated with " + count + " failed logins");
 
     if (count >= THRESHOLD) {
         console.log("WARNING: IP address " + ip + " has " + count + " failed logins");
