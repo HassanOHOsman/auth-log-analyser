@@ -1,2 +1,3 @@
-const filePath = process.argv[2];
-console.log(`Reading ${filePath}`);
+const fs = require("fs");
+const readline = require("readline");
+
