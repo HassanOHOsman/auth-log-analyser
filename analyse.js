@@ -17,8 +17,7 @@ async function main() {
    });
 
    for await (const line of rl) {
-
-   
+    const result = parseLine(line);
    }
 
 }
