@@ -3,6 +3,10 @@ const readline = require("readline");
 
 const FAILED_LOGIN = /Failed password for (\S+) from (\d{1,3}(?:\.\d{1,3}){3}) port/;
 
+function parseLine(line) {
+    
+}
+
 async function main() {
    const filePath = process.argv[2];
 
