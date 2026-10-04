@@ -18,6 +18,10 @@ async function main() {
 
    for await (const line of rl) {
     const result = parseLine(line);
+
+    if(result) {
+        console.log(result);
+    }
    }
 
 }
