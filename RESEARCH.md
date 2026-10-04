@@ -1,0 +1,55 @@
+## SSH auth.log format
+
+**What I needed to learn and why:**
+I needed to know what failed SSH login lines look like so that my tool can find them and extract the IP address.
+
+**Where I looked:**
+- [Red Hat Customer Portal: SSH "Failed password" article](https://access.redhat.com/solutions/7138892)
+  (official vendor source). Showed a failed login line on RHEL 9/10 with
+  the same shape I planned to match. Only the first part is public.
+- [LinuxSecurity.com: Understand Failed Authentication Patterns](https://linuxsecurity.com/howtos/secure-my-network/understand-failed-authentication-patterns-linux-logs)
+  Showed several example lines and explained that PAM writes a separate
+  line for the same attempt. A security news site, so supporting evidence.
+- [Medium: Investigating SSH Authentication Failures on Linux](https://medium.com/@gozde_t/%EF%B8%8F-investigating-ssh-authentication-failures-on-linux-30ae275a0caf)
+  The only source I found showing the `invalid user` variation.
+- [Ubuntu: Viewing and monitoring log files](https://ubuntu.com/tutorials/viewing-and-monitoring-log-files)
+  (official). Confirmed `/var/log/auth.log` records remote logins.
+- [GeeksforGeeks: Find failed SSH login attempts](https://www.geeksforgeeks.org/linux-unix/find-failed-ssh-login-attempts-in-linux/)
+  and [TutorialsPoint: the same topic](https://www.tutorialspoint.com/article/how-to-find-all-failed-ssh-login-attempts-in-linux)
+  Confirmed log locations differ by distro and showed per-IP counting
+  with `awk`.
+
+**How I assessed them:**
+Two independent sources (Red Hat and LinuxSecurity) showed the same line
+shape, which is why I trusted it. None of them is a formal specification
+of sshd's log messages, and the `invalid user` variation rests on one
+source (Medium). To reduce that risk I wrote my own sample data covering
+both shapes, and I will test my regex against it. All links accessed on
+3 October 2026.
+
+**What I learned:**
+- A failed login is recorded as `Failed password for <user> from <IP>
+  port <N> ssh2`. For a user that doesn't exist, `invalid user` comes
+  before the name. The IP still comes after `from` in both shapes, but
+  the username moves along by two words.
+- The log location depends on the distro: `/var/log/auth.log`
+  (Debian/Ubuntu), `/var/log/secure` (Red Hat family), or
+  `journalctl` on systemd systems. So my tool takes the file path as an
+  argument instead of hardcoding it.
+- One tutorial extracts the IP with `awk '{print $11}'`, which depends
+  on field position. I tried it on my two sample lines: on the normal
+  line it printed `203.0.113.5`, but on the `invalid user` line it
+  printed `admin`, because the extra words `invalid user` shift every
+  field along by two (the IP moves from field 11 to field 13). So I
+  anchored my regex on `from` instead of counting positions.
+- One login attempt can produce extra PAM lines
+  (`pam_unix(sshd:auth): authentication failure`). My regex only matches
+  `Failed password`, so these should be ignored. I haven't tested this yet.
+
+**What didn't work:**
+- I couldn't find a full real log file online because they're private,
+  so I wrote my own sample data in `sample_data/auth.log`.
+- My sample file didn't show up in Git. The Node `.gitignore` template
+  contains `*.log`, which silently ignored it. I found the rule with
+  `git check-ignore -v` and fixed it with `!sample_data/auth.log`
+  instead of removing the `*.log` rule.
