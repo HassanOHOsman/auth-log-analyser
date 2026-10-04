@@ -19,6 +19,11 @@ async function main() {
     process.exit(1);
    }
 
+   if(fs.existsSync(filePath)) {
+    console.error("Usage: node analyse.js <path-to-log-file>");
+    process.exit(1);
+   }
+
    const rl = readline.createInterface({
      input: fs.createReadStream(filePath),
    });
