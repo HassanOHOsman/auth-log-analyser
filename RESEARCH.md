@@ -91,3 +91,6 @@ My tool had to read a log file line by line, take the file path from the command
 
 **What didn't work:**
 - My first file-exists check was written as `fs.existsSync(!filePath)`, which tests a true/false value and not the path, so it never caught a missing file. I fixed it to `!fs.existsSync(filePath)` and gave it its own error message, and I tested it with a file that doesn't exist.
+
+
+
