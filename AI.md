@@ -14,4 +14,4 @@ I used Claude to:
 
 - The file containing the sample log lines was ignored by Git. First, Claude suggested that the Node .gitignore shouldn't affect it, then corrected itself and pointed to `*.log`. I confirmed the cause with `git check-ignore -v`.
 
-- For test assertions, clause suggested i could use either strictEqual or deepStrictEqual. I then wrote my first assertion with `strictEqual, ran it, and saw it fail even though the `actual` and the `expected` results were identical. This led me to assert using `deepStrictEqual` which passed.
+- For test assertions, clause suggested i could use either strictEqual or deepStrictEqual. I then wrote my first assertion with `strictEqual`, ran it, and saw it fail even though the `actual` and the `expected` results were identical. This led me to assert using `deepStrictEqual` which passed.
