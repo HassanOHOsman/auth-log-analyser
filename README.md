@@ -2,7 +2,7 @@
 
 A command-line tool that scans SSH authentication logs, looking for failed login attempts, counts them per IP address, and flags the ones that reach (or exceed) a threshold of 3 failed login attempts.
 
-I chose to build this tool becuase failed SSH logins are something a DevOps Engineer has to watch out for. I also wanted to learn how to turn a long log file into a short report that shows what really needs attention.
+I built this tool becuase failed SSH logins are something a DevOps Engineer has to watch out for. I also wanted to learn how to turn a long log file into a short report that shows what really needs attention.
 
 
 ## How to run it
