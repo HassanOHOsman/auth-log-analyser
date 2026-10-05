@@ -19,6 +19,7 @@ Run the tests:
 npm test
 ```
 
+
 ## How it works
 
 1. The analyser reads the log file one line at a time.
@@ -26,3 +27,7 @@ npm test
 3. It counts the failed login attempts for each IP address.
 4. It then prints one line per IP address, and flags any IP at or above the threshold.
 
+
+## What I would improve
+
+Let the user set the threshold from the terminal instead of it being fixed at 3.
