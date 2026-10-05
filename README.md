@@ -21,8 +21,8 @@ npm test
 
 ## How it works
 
-1. The tool reads the log file one line at a time.
-2. It uses a regex to find failed login attempts line and pick out the IP address
+1. The analyser reads the log file one line at a time.
+2. It uses a regex (in the `parseLine` function) to find failed login lines and pick out the IP address.
 3. It counts the failed login attempts for each IP address.
 4. It then prints one line per IP address, and flags any IP at or above the threshold.
 
