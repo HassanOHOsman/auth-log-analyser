@@ -18,3 +18,10 @@ Run the tests:
 ```bash
 npm test
 ```
+
+## How it works
+
+1. The tool reads the log file one line at a time.
+2. It uses a regex to find failed login attempts line and pick out the IP address and count the failed logins for each IP address.
+3. It then prints one line per IP address, and flags any IP at or above the threshold.
+
