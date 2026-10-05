@@ -24,8 +24,7 @@ Two independent sources (Red Hat and LinuxSecurity) showed the same line
 shape, which is why I trusted it. None of them is a formal specification
 of sshd's log messages, and the `invalid user` variation rests on one
 source (Medium). To reduce that risk I wrote my own sample data covering
-both shapes, and I will test my regex against it. All links accessed on
-3 October 2026.
+both shapes, and I tested my regex against it with `npm test`. 
 
 **What I learned:**
 - A failed login is recorded as `Failed password for <user> from <IP>
@@ -53,3 +52,18 @@ both shapes, and I will test my regex against it. All links accessed on
   contains `*.log`, which silently ignored it. I found the rule with
   `git check-ignore -v` and fixed it with `!sample_data/auth.log`
   instead of removing the `*.log` rule.
+
+
+
+## Regular expressions in JavaScript
+
+
+**What I needed to learn and why:**
+
+  
+**Where I looked:**
+
+**How I assessed them:**
+**What I learned:**
+
+**What didn't work:**
