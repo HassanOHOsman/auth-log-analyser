@@ -57,13 +57,17 @@ both shapes, and I tested my regex against it with `npm test`.
 
 ## Regular expressions in JavaScript
 
-
 **What I needed to learn and why:**
-
+I needed a regex in `parseLine` to find failed login lines and pick out the IP address.
   
 **Where I looked:**
+- [MDN: Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) (official documentation for JavaScript). [Say what you used it for, and only list it if you actually read it.]
 
-**How I assessed them:**
 **What I learned:**
+- `( )` is a capture group that saves part of the match, and `(?: )` matches text without saving it. A `?` after a group makes it optional.
+- `\S+` matches one or more non-space characters, and `\d{1,3}` matches one to three digits.
+- `line.match(regex)` returns an array of the captured parts, or `null` if the line doesn't match. That's why `parseLine` returns `null` for other lines.
+- [In your own words: what `(?:invalid user )?` does.]
 
 **What didn't work:**
+- My first regex had no optional group, so it matched only 6 of the 11 failed logins. Nothing crashed and the `invalid user` lines were just skipped. I found it by counting the output against the sample file, and fixed it by adding `(?:invalid user )?`.
