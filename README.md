@@ -12,3 +12,9 @@ Run the analyser on the sample log:
 ```bash
 node analyse.js sample_data/auth.log
 ```
+
+Run the tests:
+
+```bash
+npm test
+```
