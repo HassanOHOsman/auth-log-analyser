@@ -30,8 +30,8 @@ npm test
 
 ## What I would improve
 
-1. Let the user set the threshold from the terminal instead of it being fixed at 3.
-2. Display the usernames associated with each IP tried for failed login attempts.
-3. Count failures within a time window.
-4. Run the tests automatically on every push with GitHub Actions.
+- Let the user set the threshold from the terminal instead of it being fixed at 3.
+- Display the usernames associated with each IP tried for failed login attempts.
+- Count failures within a time window.
+- Run the tests automatically on every push with GitHub Actions.
 
