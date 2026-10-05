@@ -7,4 +7,4 @@ I used Claude to:
 - Generate sample log lines.
 - Better form the regex used in the parseLine function.
 - Explain some concepts, such as regex groups, Map, and require.main.
-- Help me improve the readability and structure of RESEARCH.md and README.md.
+- Help me improve the readability and structure of RESEARCH.md, README.md, and AI.md.
