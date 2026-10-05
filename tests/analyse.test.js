@@ -15,3 +15,9 @@ test("parseLine should return the IP address for an invalid user failed login at
   assert.deepStrictEqual(result, { ip: "192.0.2.77" });
 });
 
+test("parseLine should return null for a successful login attempt", () => {
+  const logLine = "Oct  3 14:25:09 myserver sshd[12361]: Accepted password for alice from 198.51.100.23 port 40122 ssh2";
+  const result = parseLine(logLine);
+  assert.deepStrictEqual(result, null);
+});
+
