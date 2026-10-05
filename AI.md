@@ -3,7 +3,7 @@
 ## Tools used and what for
 
 I used Claude to:
-- Help me navigate my way, at certain points while building the tool.
+- Helped me navigate certain challenges while building the analyser tool, such as troubleshooting terminal errors, getting unstuck, and implementing if conditions to handle cases where a file path is not provided and when the specified file is missing.
 - Generate sample log lines.
 - Better form the regex used in the parseLine function.
 - Explain some concepts, such as regex groups, Map, and require.main.
