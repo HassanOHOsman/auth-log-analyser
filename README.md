@@ -32,6 +32,6 @@ npm test
 
 - Let the user set the threshold from the terminal instead of it being fixed at 3.
 - Display the usernames associated with each IP tried for failed login attempts.
-- Count failures within a time window.
+- Count failures within a time window (e.g., 3 failed attempts in a minute is treated differently from 3 failed attempts in a month)
 - Run the tests automatically on every push with GitHub Actions.
 
