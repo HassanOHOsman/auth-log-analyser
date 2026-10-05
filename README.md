@@ -4,5 +4,11 @@ A command-line tool that scans SSH authentication logs, looking for failed login
 
 
 ## How to run it
+
 You only need [Node.js](https://nodejs.org) installed
 
+Run the analyser on the sample log:
+
+```bash
+node analyse.js sample_data/auth.log
+```
