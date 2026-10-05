@@ -1,3 +1,3 @@
 # auth-log-analyser
 
-A tool that checks SSH authentication logs, looking for failed login attempts.It also counts those failed login attempts by IP and flags the ones that reach the threshold.
+A command-line tool that scans SSH authentication logs, looking for failed login attempts. Then, it counts them per IP address and flags the ones that reaches (and exceeds) the defined threshold.
