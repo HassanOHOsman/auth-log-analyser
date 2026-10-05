@@ -61,13 +61,33 @@ both shapes, and I tested my regex against it with `npm test`.
 I needed a regex in `parseLine` to find failed login lines and pick out the IP address.
   
 **Where I looked:**
-- [MDN: Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) (official documentation for JavaScript). [Say what you used it for, and only list it if you actually read it.]
+- [MDN: Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) (official documentation for JavaScript). 
 
 **What I learned:**
 - `( )` is a capture group that saves part of the match, and `(?: )` matches text without saving it. A `?` after a group makes it optional.
 - `\S+` matches one or more non-space characters, and `\d{1,3}` matches one to three digits.
 - `line.match(regex)` returns an array of the captured parts, or `null` if the line doesn't match. That's why `parseLine` returns `null` for other lines.
-- [In your own words: what `(?:invalid user )?` does.]
+
 
 **What didn't work:**
 - My first regex had no optional group, so it matched only 6 of the 11 failed logins. Nothing crashed and the `invalid user` lines were just skipped. I found it by counting the output against the sample file, and fixed it by adding `(?:invalid user )?`.
+
+
+
+## Reading a file and counting in Node.js
+
+**What I needed to learn and why:**
+My tool had to read a log file line by line, take the file path from the command line, and count failed logins per IP address.
+
+**Where I looked:**
+- [Node.js docs: readline](https://nodejs.org/api/readline.html) and [fs](https://nodejs.org/api/fs.html). 
+- [MDN: Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map). 
+
+**What I learned:**
+- `readline` with `for await` reads a file one line at a time instead of loading it all at once, and `await` only works inside an `async` function. That's why `main` is `async`.
+- `process.argv[2]` is the first argument the user types, because positions 0 and 1 are Node and the script.
+- A `Map` stores one count per IP address. `has` checks if an IP was seen, `get` reads its count, and `set` stores the new total.
+- `console.error` prints to the error stream, and `process.exit(1)` stops the program with a failure code.
+
+**What didn't work:**
+- My first file-exists check was written as `fs.existsSync(!filePath)`, which tests a true/false value and not the path, so it never caught a missing file. I fixed it to `!fs.existsSync(filePath)` and gave it its own error message, and I tested it with a file that doesn't exist.
