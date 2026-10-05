@@ -53,7 +53,7 @@ both shapes, and I tested my regex against it with `npm test`.
   `git check-ignore -v` and fixed it with `!sample_data/auth.log`
   instead of removing the `*.log` rule.
 
-
+*************************************************************************************************
 
 ## Regular expressions in JavaScript
 
@@ -71,7 +71,7 @@ I needed a regex in `parseLine` to find failed login lines and pick out the IP a
 **What didn't work:**
 - My first regex had no optional group, so it matched only 6 of the 11 failed logins. Nothing crashed and the `invalid user` lines were just skipped. I found it by counting the output against the sample file, and fixed it by adding `(?:invalid user )?`.
 
-
+*************************************************************************************************
 
 ## Reading a file and counting in Node.js
 
