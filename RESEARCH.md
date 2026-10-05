@@ -68,7 +68,6 @@ I needed a regex in `parseLine` to find failed login lines and pick out the IP a
 - `\S+` matches one or more non-space characters, and `\d{1,3}` matches one to three digits.
 - `line.match(regex)` returns an array of the captured parts, or `null` if the line doesn't match. That's why `parseLine` returns `null` for other lines.
 
-
 **What didn't work:**
 - My first regex had no optional group, so it matched only 6 of the 11 failed logins. Nothing crashed and the `invalid user` lines were just skipped. I found it by counting the output against the sample file, and fixed it by adding `(?:invalid user )?`.
 
